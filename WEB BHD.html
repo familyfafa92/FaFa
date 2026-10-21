@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA Plus Bahrul Huda - Portal Resmi Daftar PPDB</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#064E3B',    /* Dark Green */
+                            primary: '#0F5132', /* Main Emerald Green */
+                            emerald: '#10B981', /* Bright Emerald */
+                            gold: '#D97706',    /* Primary Warm Gold */
+                            goldlight: '#F59E0B',
+                            light: '#F8FAFC',
+                            slate: '#0F172A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .arabic-text { font-family: 'Amiri', serif; }
+        .hero-bg-overlay {
+            background: linear-gradient(135deg, rgba(6, 78, 59, 0.92) 0%, rgba(15, 81, 50, 0.85) 50%, rgba(15, 23, 42, 0.75) 100%);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #0F5132; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #064E3B; }
+        
+        /* Smooth Scroll-Reveal & Entrance Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-scale-in {
+            animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Scroll Reveal Effect Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media print {
+            body * { visibility: hidden; }
+            #printableCard, #printableCard * { visibility: visible; }
+            #printableCard { position: absolute; left: 0; top: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- ================= MINIMALIST NAVIGATION BAR ================= -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- Brand Logo Icon -->
+                <div class="flex-1 flex items-center justify-start">
+                    <button onclick="switchPage('home')" class="flex items-center gap-3 group text-left" aria-label="Beranda">
+                        <!-- Custom SVG Logo derived from Pondok Pesantren Bahrul Huda Emblem -->
+                        <svg viewBox="0 0 200 220" class="w-10 h-10 drop-shadow-sm transition-transform group-hover:scale-105 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer Hexagon Frame -->
+                            <path d="M 100 6 L 188 50 L 188 152 L 100 196 L 12 152 L 12 50 Z" fill="#9de284" stroke="#0a4623" stroke-width="7" stroke-linejoin="round"/>
+                            
+                            <!-- Text Arc Path -->
+                            <path id="logoArcNav" d="M 28 108 A 76 76 0 0 1 172 108" fill="none"/>
+                            <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11.5" fill="#0d381e">
+                                <textPath href="#logoArcNav" startOffset="50%" text-anchor="middle">PONDOK PESANTREN BAHRUL HUDA</textPath>
+                            </text>
+                            
+                            <!-- Light Rays -->
+                            <g stroke="#dc2626" stroke-width="2.5" stroke-linecap="round">
+                                <line x1="100" y1="28" x2="100" y2="16"/>
+                                <line x1="88" y1="32" x2="74" y2="22"/>
+                                <line x1="112" y1="32" x2="126" y2="22"/>
+                                <line x1="82" y1="42" x2="68" y2="38"/>
+                                <line x1="118" y1="42" x2="132" y2="38"/>
+                            </g>
+
+                            <!-- Flame / Torch Top -->
+                            <path d="M 100 26 C 94 36 96 44 100 48 C 104 44 106 36 100 26 Z" fill="#ef4444"/>
+
+                            <!-- Central Minaret / Tower -->
+                            <path d="M 90 54 L 100 48 L 110 54 Z" fill="#1e293b"/>
+                            <path d="M 86 142 L 92 68 L 100 68 L 100 142 Z" fill="#0f172a"/>
+                            <path d="M 100 142 L 100 68 L 108 68 L 114 142 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="1"/>
+                            <rect x="91" y="78" width="6" height="12" rx="3" fill="#ffffff"/>
+                            <rect x="103" y="78" width="6" height="12" rx="3" fill="#0f172a"/>
+                            <rect x="92" y="102" width="5" height="10" rx="2" fill="#ffffff"/>
+                            <rect x="103" y="102" width="5" height="10" rx="2" fill="#0f172a"/>
+
+                            <!-- Flourish / Calligraphic Swirls -->
+                            <path d="M 45 80 C 65 75 60 115 48 110 C 38 105 60 85 70 100" fill="none" stroke="#09542a" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M 155 80 C 135 75 140 115 152 110 C 162 105 140 85 130 100" fill="none" stroke="#09542a" stroke-width="3.5" stroke-linecap="round"/>
+
+                            <!-- Stars -->
+                            <path d="M 46 135 L 48 140 L 53 140 L 49 143 L 51 148 L 46 145 L 41 148 L 43 143 L 39 140 L 44 140 Z" fill="#09542a"/>
+                            <path d="M 36 152 L 38 156 L 42 156 L 39 159 L 40 163 L 36 160 L 32 163 L 33 159 L 30 156 L 34 156 Z" fill="#09542a"/>
+                            
+                            <path d="M 154 135 L 156 140 L 161 140 L 157 143 L 159 148 L 154 145 L 149 148 L 151 143 L 147 140 L 152 140 Z" fill="#09542a"/>
+                            <path d="M 164 152 L 166 156 L 170 156 L 167 159 L 168 163 L 164 160 L 160 163 L 161 159 L 158 156 L 162 156 Z" fill="#09542a"/>
+
+                            <!-- Open Qur'an Base -->
+                            <path d="M 62 150 Q 82 145 100 152 Q 118 145 138 150 L 138 168 Q 118 162 100 169 Q 82 162 62 168 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+                            <line x1="100" y1="152" x2="100" y2="169" stroke="#0f172a" stroke-width="2"/>
+
+                            <!-- Bottom Ribbon with BAHRUL HUDA text -->
+                            <path d="M 40 188 L 52 180 L 148 180 L 160 188 L 152 204 L 148 198 L 52 198 L 48 204 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/>
+                            <text x="100" y="193" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#b91c1c" text-anchor="middle">BAHRUL HUDA</text>
+                        </svg>
+                        <span class="font-extrabold text-sm text-slate-800 dark:text-white group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition">MA Plus Bahrul Huda</span>
+                    </button>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center justify-center space-x-1 sm:space-x-2 text-xs font-semibold text-slate-600 dark:text-slate-300">
+                    <button onclick="switchPage('home')" class="px-4 py-2 rounded-full hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 font-bold transform hover:-translate-y-0.5 active:scale-95">Beranda</button>
+                    <button onclick="navigateToHomeSection('jenjang')" class="px-4 py-2 rounded-full hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 font-bold transform hover:-translate-y-0.5 active:scale-95">Program</button>
+                    <button onclick="navigateToHomeSection('fasilitas')" class="px-4 py-2 rounded-full hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 font-bold transform hover:-translate-y-0.5 active:scale-95">Fasilitas</button>
+                    <button onclick="navigateToHomeSection('biaya-ppdb')" class="px-4 py-2 rounded-full hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 font-bold transform hover:-translate-y-0.5 active:scale-95">Biaya</button>
+                    <button onclick="navigateToHomeSection('berita')" class="px-4 py-2 rounded-full hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 font-bold transform hover:-translate-y-0.5 active:scale-95">Berita</button>
+                </nav>
+
+                <!-- CTA Button & Dark Mode Toggle for PPDB Page -->
+                <div class="hidden md:flex flex-1 items-center justify-end gap-3">
+                    <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <i class="fas fa-moon dark:hidden text-sm"></i>
+                        <i class="fas fa-sun hidden dark:block text-sm"></i>
+                    </button>
+                    <button onclick="switchPage('ppdb')" class="bg-brand-primary hover:bg-brand-dark text-white text-xs font-semibold px-5 py-2.5 rounded-full transition shadow-sm hover:shadow flex items-center gap-2">
+                        <i class="fas fa-user-plus text-amber-400"></i> Daftar PPDB
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button & Dark Mode -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <i class="fas fa-moon dark:hidden text-xs"></i>
+                        <i class="fas fa-sun hidden dark:block text-xs"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="p-2 text-slate-700 dark:text-slate-200 hover:text-brand-primary focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fas fa-bars text-lg" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-6 py-4 space-y-2 text-sm">
+            <button onclick="switchPage('home')" class="mobile-link block w-full text-left px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 font-semibold hover:bg-emerald-50 dark:hover:bg-slate-800 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 flex items-center justify-between group">
+                <span>Beranda</span>
+                <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="navigateToHomeSection('jenjang')" class="mobile-link block w-full text-left px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 font-semibold hover:bg-emerald-50 dark:hover:bg-slate-800 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 flex items-center justify-between group">
+                <span>Program</span>
+                <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="navigateToHomeSection('fasilitas')" class="mobile-link block w-full text-left px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 font-semibold hover:bg-emerald-50 dark:hover:bg-slate-800 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 flex items-center justify-between group">
+                <span>Fasilitas</span>
+                <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="navigateToHomeSection('biaya-ppdb')" class="mobile-link block w-full text-left px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 font-semibold hover:bg-emerald-50 dark:hover:bg-slate-800 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 flex items-center justify-between group">
+                <span>Biaya</span>
+                <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="navigateToHomeSection('berita')" class="mobile-link block w-full text-left px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 font-semibold hover:bg-emerald-50 dark:hover:bg-slate-800 hover:text-brand-primary dark:hover:text-emerald-400 transition-all duration-200 flex items-center justify-between group">
+                <span>Berita</span>
+                <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <div class="pt-2">
+                <button onclick="switchPage('ppdb')" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-semibold py-2.5 rounded-full text-xs transition flex items-center justify-center gap-2">
+                    <i class="fas fa-user-plus text-amber-400"></i> Daftar PPDB
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= PAGE 1: BERANDA / HOME PAGE ================= -->
+    <div id="page-home" class="page-view">
+        
+        <!-- Hero Section -->
+        <section id="beranda" class="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
+            <div id="heroSlider" class="absolute inset-0 z-0">
+                <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="absolute inset-0 hero-bg-overlay"></div>
+                </div>
+                <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="absolute inset-0 hero-bg-overlay"></div>
+                </div>
+                <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="absolute inset-0 hero-bg-overlay"></div>
+                </div>
+            </div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center animate-fade-in">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-md text-emerald-300 border border-emerald-400/40 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
+                        <i class="fas fa-star text-amber-400"></i> Welcome to MA Plus Bahrul Huda
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-4xl mx-auto">
+                        We Raise <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-200">Qur'an-Grounded</span> Leaders, Ready for Life
+                    </h1>
+
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <button onclick="switchPage('ppdb')" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                            <i class="fas fa-pen-to-square"></i> Daftar PPDB Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+                <button onclick="setSlide(0)" class="slide-dot w-3 h-3 rounded-full bg-white opacity-100 transition-all"></button>
+                <button onclick="setSlide(1)" class="slide-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all"></button>
+                <button onclick="setSlide(2)" class="slide-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all"></button>
+            </div>
+        </section>
+
+        <!-- Jenjang Pendidikan Section -->
+        <section id="jenjang" class="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                    <span class="bg-emerald-100 dark:bg-emerald-950/60 dark:text-emerald-400 text-brand-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        Program Formal & Diniyah
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+                        Program Pendidikan di MA Plus Bahrul Huda
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+                        Pilihan peminatan dan program studi terakreditasi unggul untuk siswa-siswi.
+                    </p>
+                </div>
+
+                <div class="flex justify-center mb-8">
+                    <div class="inline-flex bg-white dark:bg-slate-900 p-1.5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 gap-2">
+                        <button onclick="switchTab('smp')" id="tab-smp" class="jenjang-tab active px-6 py-3 rounded-xl font-bold text-sm transition-all bg-brand-primary text-white shadow-sm">
+                            MA Plus MIPA
+                        </button>
+                        <button onclick="switchTab('sma')" id="tab-sma" class="jenjang-tab px-6 py-3 rounded-xl font-bold text-sm transition-all text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-emerald-400">
+                            MA Plus IPS
+                        </button>
+                        <button onclick="switchTab('tahfizh')" id="tab-tahfizh" class="jenjang-tab px-6 py-3 rounded-xl font-bold text-sm transition-all text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-emerald-400">
+                            Program Special Tahfizh
+                        </button>
+                    </div>
+                </div>
+
+                <div id="tab-content" class="bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-100 dark:border-slate-800 transition-all duration-300">
+                    <!-- MIPA Content -->
+                    <div id="content-smp" class="tab-pane space-y-8">
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="inline-block bg-amber-100 dark:bg-amber-950/60 dark:text-amber-300 text-amber-800 text-xs font-bold px-3 py-1 rounded-md">
+                                    Akreditasi A (Unggul)
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">MA Plus Bahrul Huda - Jurusan MIPA</h3>
+                                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Berfokus pada penguatan sains modern, matematika, dan teknologi yang diintegrasikan dengan nilai-nilai Al-Qur'an serta penanaman adab islami.
+                                </p>
+                                
+                                <div class="space-y-3 pt-2">
+                                    <h4 class="font-bold text-slate-800 dark:text-emerald-400 text-sm uppercase tracking-wider text-brand-primary">Program Unggulan MIPA:</h4>
+                                    <ul class="grid sm:grid-cols-2 gap-2 text-sm text-slate-700 dark:text-slate-300">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Matrikulasi Sains & Bahasa</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Target Hafalan Al-Qur'an</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Research & Olympiad Club</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Science & Robotics Lab</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="MIPA Class" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IPS Content -->
+                    <div id="content-sma" class="tab-pane hidden space-y-8">
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="inline-block bg-emerald-100 dark:bg-emerald-950/60 dark:text-emerald-300 text-emerald-800 text-xs font-bold px-3 py-1 rounded-md">
+                                    Persiapan PTN & Luar Negeri
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">MA Plus Bahrul Huda - Jurusan IPS</h3>
+                                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Mempersiapkan siswa jenjang menengah atas untuk unggul dalam ilmu sosial, ekonomi syariah, serta siap bersaing masuk Perguruan Tinggi Negeri (PTN) dan Universitas Luar Negeri.
+                                </p>
+                                
+                                <div class="space-y-3 pt-2">
+                                    <h4 class="font-bold text-slate-800 dark:text-emerald-400 text-sm uppercase tracking-wider text-brand-primary">Program Unggulan IPS:</h4>
+                                    <ul class="grid sm:grid-cols-2 gap-2 text-sm text-slate-700 dark:text-slate-300">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Intensif SNBT & Ujian PTN</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Kajian Ekonomi Syariah & Turats</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Bimbingan Beasiswa Perguruan Tinggi</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Leadership & Public Speaking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="IPS Class" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Special Tahfizh Content -->
+                    <div id="content-tahfizh" class="tab-pane hidden space-y-8">
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="inline-block bg-amber-100 dark:bg-amber-950/60 dark:text-amber-300 text-amber-800 text-xs font-bold px-3 py-1 rounded-md">
+                                    Intensif 30 Juz & Sanad
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Madrasah Diniyah & Takhassus Tahfizh</h3>
+                                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Program khusus karantina dan akselerasi hafalan Al-Qur'an dengan pengawasan muhaffizh bersanad, dilengkapi pemahaman Tajwid, Ulumul Qur'an, serta pembiasaan Muraja'ah harian.
+                                </p>
+                                
+                                <div class="space-y-3 pt-2">
+                                    <h4 class="font-bold text-slate-800 dark:text-emerald-400 text-sm uppercase tracking-wider text-brand-primary">Keunggulan Program Tahfizh:</h4>
+                                    <ul class="grid sm:grid-cols-2 gap-2 text-sm text-slate-700 dark:text-slate-300">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Target Mutqin 30 Juz</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Penguji Syahadah & Sanad</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Halaqah Khusus Ber-AC</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> Wisuda Khotmil Qur'an</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5">
+                                <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=800&auto=format&fit=crop" alt="Tahfizh Class" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="py-16 bg-gradient-to-r from-brand-dark to-brand-primary text-white border-y border-amber-500/20 reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center" id="counterSection">
+                    <div class="p-4 space-y-2">
+                        <i class="fas fa-users-between-lines text-3xl sm:text-4xl text-amber-400"></i>
+                        <div class="text-3xl sm:text-5xl font-black text-white tracking-tight"><span class="counter" data-target="1250">0</span>+</div>
+                        <p class="text-slate-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">Santri Aktif</p>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <i class="fas fa-user-graduate text-3xl sm:text-4xl text-amber-400"></i>
+                        <div class="text-3xl sm:text-5xl font-black text-white tracking-tight"><span class="counter" data-target="85">0</span>+</div>
+                        <p class="text-slate-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">Ustadz & Pengajar</p>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <i class="fas fa-university text-3xl sm:text-4xl text-amber-400"></i>
+                        <div class="text-3xl sm:text-5xl font-black text-white tracking-tight"><span class="counter" data-target="100">0</span>%</div>
+                        <p class="text-slate-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">Kelulusan PTN & LN</p>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <i class="fas fa-trophy text-3xl sm:text-4xl text-amber-400"></i>
+                        <div class="text-3xl sm:text-5xl font-black text-white tracking-tight"><span class="counter" data-target="32">0</span>+</div>
+                        <p class="text-slate-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">Ekstrakulikuler</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section id="fasilitas" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300 reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-10">
+                    <span class="bg-emerald-100 dark:bg-emerald-950/60 dark:text-emerald-400 text-brand-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        Lingkungan Asri & Lengkap
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Fasilitas Sekolah</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">Sarana pendukung belajar dan hidup yang nyaman di Sukabumi.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-2 mb-10">
+                    <button onclick="filterGallery('all')" class="gallery-filter active px-5 py-2 rounded-full text-xs font-bold transition bg-brand-primary text-white">Semua</button>
+                    <button onclick="filterGallery('asrama')" class="gallery-filter px-5 py-2 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">Asrama Santri</button>
+                    <button onclick="filterGallery('masjid')" class="gallery-filter px-5 py-2 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">Masjid Jami'</button>
+                    <button onclick="filterGallery('kelas')" class="gallery-filter px-5 py-2 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">Kelas & Lab</button>
+                    <button onclick="filterGallery('olahraga')" class="gallery-filter px-5 py-2 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">Lapangan Olahraga</button>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                    <div class="gallery-item masjid rounded-2xl overflow-hidden shadow-md group relative">
+                        <img src="https://images.unsplash.com/photo-1542662565-7e4b66bae529?q=80&w=800&auto=format&fit=crop" alt="Masjid Utama" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end text-white">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Ibadah</span>
+                            <h4 class="font-bold text-lg">Masjid Utama Bahrul Huda</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item asrama rounded-2xl overflow-hidden shadow-md group relative">
+                        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=800&auto=format&fit=crop" alt="Asrama Santri" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end text-white">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Hunian</span>
+                            <h4 class="font-bold text-lg">Asrama Nyaman & Bersih</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item kelas rounded-2xl overflow-hidden shadow-md group relative">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Ruang Kelas Modern" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end text-white">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Pembelajaran</span>
+                            <h4 class="font-bold text-lg">Ruang Kelas Ber-AC & Multimedia</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biaya Section -->
+        <section id="biaya-ppdb" class="py-20 bg-slate-100 dark:bg-slate-950 transition-colors duration-300 reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                    <span class="bg-amber-100 dark:bg-amber-950/60 dark:text-amber-300 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">Transparan & Terjangkau</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Informasi Biaya & Simulasi PPDB</h2>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-4 flex items-center justify-between">
+                        <span><i class="fas fa-calculator text-amber-500"></i> Simulasi Estimasi Biaya</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">T.A. 2026/2027</span>
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Pilih Jurusan</label>
+                            <select id="calcJenjang" onchange="calculateFee()" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white rounded-xl px-4 py-2 text-sm font-semibold">
+                                <option value="smp">MA Plus MIPA</option>
+                                <option value="sma">MA Plus IPS</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Pilih Program</label>
+                            <select id="calcProgram" onchange="calculateFee()" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white rounded-xl px-4 py-2 text-sm font-semibold">
+                                <option value="reguler">Reguler Boarding</option>
+                                <option value="tahfizh">Takhassus Tahfizh</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-5 border border-slate-200 dark:border-slate-700/60 text-sm text-slate-700 dark:text-slate-200 space-y-2">
+                        <div class="flex justify-between"><span>Infaq Pembangunan</span><span class="font-bold" id="feeInfaq">Rp 8.500.000</span></div>
+                        <div class="flex justify-between"><span>SPP Bulanan</span><span class="font-bold" id="feeSpp">Rp 1.600.000</span></div>
+                        <div class="flex justify-between"><span>Seragam & Kitab</span><span class="font-bold" id="feeSeragam">Rp 1.800.000</span></div>
+                        <div class="flex justify-between"><span>Buku & Perlengkapan</span><span class="font-bold" id="feeBuku">Rp 1.500.000</span></div>
+                        <div class="flex justify-between pt-3 font-extrabold text-base text-brand-dark dark:text-white border-t border-slate-300 dark:border-slate-700">
+                            <span>Total Biaya Masuk Awal:</span><span class="text-amber-600 dark:text-amber-400 text-xl" id="feeTotal">Rp 13.400.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="berita" class="py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300 reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                    <span class="bg-emerald-100 dark:bg-emerald-950/60 dark:text-emerald-400 text-brand-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">
+                        <i class="fas fa-newspaper mr-1.5"></i> Kabar Kampus & Prestasi
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Berita & Kegiatan Terbaru</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm max-w-xl mx-auto">Informasi seputar prestasi santri, kajian rutin, dan agenda kegiatan di MA Plus Bahrul Huda.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- News Card 1 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1.5">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="MHQ Prestasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-amber-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                                    <i class="fas fa-trophy mr-1"></i> Prestasi
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3 text-xs text-slate-400 font-semibold">
+                                    <span><i class="far fa-calendar-alt text-brand-primary dark:text-emerald-400 mr-1"></i> 14 Okt 2026</span>
+                                    <span>•</span>
+                                    <span><i class="far fa-clock text-brand-primary dark:text-emerald-400 mr-1"></i> 3 Min Baca</span>
+                                </div>
+                                <h3 onclick="openNewsModal(1)" class="font-bold text-slate-900 dark:text-white text-lg leading-snug group-hover:text-brand-primary dark:group-hover:text-emerald-400 cursor-pointer transition-colors">
+                                    Siswa MA Plus Bahrul Huda Raih Juara 1 MHQ 10 Juz
+                                </h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
+                                    Ananda Muhammad Rizky berhasil menyabet Juara 1 kategori Hafalan 10 Juz pada ajang Musabaqah Hifzhil Qur'an tingkat provinsi.
+                                </p>
+                            </div>
+                            <button onclick="openNewsModal(1)" class="inline-flex items-center gap-2 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:text-brand-dark pt-2 transition">
+                                Baca Selengkapnya <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- News Card 2 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1.5">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Seminar Parenting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                                    <i class="fas fa-book-open mr-1"></i> Kajian
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3 text-xs text-slate-400 font-semibold">
+                                    <span><i class="far fa-calendar-alt text-brand-primary dark:text-emerald-400 mr-1"></i> 08 Okt 2026</span>
+                                    <span>•</span>
+                                    <span><i class="far fa-clock text-brand-primary dark:text-emerald-400 mr-1"></i> 4 Min Baca</span>
+                                </div>
+                                <h3 onclick="openNewsModal(2)" class="font-bold text-slate-900 dark:text-white text-lg leading-snug group-hover:text-brand-primary dark:group-hover:text-emerald-400 cursor-pointer transition-colors">
+                                    Seminar Parenting: Mendidik Gen Z Berakhlaqul Karimah
+                                </h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
+                                    Sinergi rapat orang tua dan pengasuh pesantren untuk membentuk pola pengasuhan islami yang relevan di era digital.
+                                </p>
+                            </div>
+                            <button onclick="openNewsModal(2)" class="inline-flex items-center gap-2 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:text-brand-dark pt-2 transition">
+                                Baca Selengkapnya <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- News Card 3 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1.5">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&w=800&auto=format&fit=crop" alt="Rihlah Outbound" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-blue-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                                    <i class="fas fa-compass mr-1"></i> Kegiatan
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3 text-xs text-slate-400 font-semibold">
+                                    <span><i class="far fa-calendar-alt text-brand-primary dark:text-emerald-400 mr-1"></i> 28 Sep 2026</span>
+                                    <span>•</span>
+                                    <span><i class="far fa-clock text-brand-primary dark:text-emerald-400 mr-1"></i> 5 Min Baca</span>
+                                </div>
+                                <h3 onclick="openNewsModal(3)" class="font-bold text-slate-900 dark:text-white text-lg leading-snug group-hover:text-brand-primary dark:group-hover:text-emerald-400 cursor-pointer transition-colors">
+                                    Rihlah Alam & Outbound Kepemimpinan Santri Baru
+                                </h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
+                                    Membangun ukhuwah islamiyah, keberanian, serta mental kepemimpinan santri baru di alam terbuka Sukabumi.
+                                </p>
+                            </div>
+                            <button onclick="openNewsModal(3)" class="inline-flex items-center gap-2 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:text-brand-dark pt-2 transition">
+                                Baca Selengkapnya <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="py-16 bg-slate-900 text-white">
+            <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+                <i class="fas fa-quote-left text-amber-400 text-4xl opacity-50"></i>
+                <p id="testiQuote" class="text-lg sm:text-xl italic text-slate-200">
+                    "Alhamdulillah, perkembangan anak kami sangat membanggakan. Tidak hanya hafalan Al-Qur'an, kedisiplinannya berkembang luar biasa."
+                </p>
+                <div>
+                    <h4 id="testiName" class="font-bold text-amber-400">Hj. Rina Kurniawati, S.E.</h4>
+                    <p id="testiRole" class="text-xs text-slate-400">Wali Santri MA Plus Bahrul Huda</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= PAGE 2: STANDALONE DAFTAR PPDB PAGE ================= -->
+    <div id="page-ppdb" class="page-view hidden py-12 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Back to Home Header Bar -->
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
+                <button onclick="switchPage('home')" class="text-xs font-bold text-brand-primary dark:text-emerald-400 hover:text-brand-dark flex items-center gap-2">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda Utama
+                </button>
+                <span class="bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+                    <i class="fas fa-shield-halved"></i> Portal Resmi Daftar PPDB T.A. 2026/2027
+                </span>
+            </div>
+
+            <!-- Page Title Banner -->
+            <div class="bg-gradient-to-r from-brand-dark to-brand-primary rounded-3xl p-8 sm:p-10 text-white shadow-xl mb-10 text-center space-y-3">
+                <div class="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 border border-amber-400/30 px-4 py-1 rounded-full text-xs font-bold uppercase">
+                    Penerimaan Santri Baru
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold">Formulir Daftar PPDB Online</h1>
+                <p class="text-slate-200 text-xs sm:text-sm max-w-2xl mx-auto">
+                    Silakan lengkapi tahapan pendaftaran calon santri baru di bawah ini secara cermat. Nomor registrasi dan bukti pendaftaran akan dibuat secara otomatis.
+                </p>
+            </div>
+
+            <!-- Step Wizard Progress Bar -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800 mb-8">
+                <div class="grid grid-cols-4 text-center text-xs font-bold text-slate-500 dark:text-slate-400 relative">
+                    <div id="wizard-step-1" class="step-indicator active text-brand-primary dark:text-emerald-400 space-y-1">
+                        <div class="w-8 h-8 rounded-full bg-brand-primary text-white font-bold flex items-center justify-center mx-auto shadow">1</div>
+                        <span>1. Data Santri</span>
+                    </div>
+                    <div id="wizard-step-2" class="step-indicator space-y-1">
+                        <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold flex items-center justify-center mx-auto">2</div>
+                        <span>2. Orang Tua</span>
+                    </div>
+                    <div id="wizard-step-3" class="step-indicator space-y-1">
+                        <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold flex items-center justify-center mx-auto">3</div>
+                        <span>3. Jurusan</span>
+                    </div>
+                    <div id="wizard-step-4" class="step-indicator space-y-1">
+                        <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold flex items-center justify-center mx-auto">4</div>
+                        <span>4. Berkas & Cetak</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200/80 dark:border-slate-800">
+                
+                <form id="ppdbFullForm" onsubmit="handlePPDBFullSubmit(event)">
+                    
+                    <!-- STEP 1: Data Santri -->
+                    <div id="form-step-1" class="form-step space-y-6">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white border-b dark:border-slate-800 pb-3 flex items-center gap-2">
+                            <i class="fas fa-user-graduate text-brand-primary dark:text-emerald-400"></i> Langkah 1: Data Calon Santri
+                        </h3>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Nama Lengkap Santri *</label>
+                                <input type="text" id="ppdbNama" required placeholder="Sesuai Akta Kelahiran" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">NISN (Nomor Induk Siswa Nasional) *</label>
+                                <input type="number" required placeholder="10 Digit NISN" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Tempat Lahir *</label>
+                                <input type="text" required placeholder="Kota Lahir" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Tanggal Lahir *</label>
+                                <input type="date" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Jenis Kelamin *</label>
+                                <select required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                                    <option value="">-- Pilih --</option>
+                                    <option value="L">Laki-Laki (Ikhwan)</option>
+                                    <option value="P">Perempuan (Akhwat)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end pt-4">
+                            <button type="button" onclick="nextWizardStep(2)" class="bg-brand-primary hover:bg-brand-dark text-white font-bold px-8 py-3 rounded-xl transition text-sm flex items-center gap-2">
+                                Lanjut Langkah 2 <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Data Orang Tua / Wali -->
+                    <div id="form-step-2" class="form-step hidden space-y-6">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white border-b dark:border-slate-800 pb-3 flex items-center gap-2">
+                            <i class="fas fa-users text-brand-primary dark:text-emerald-400"></i> Langkah 2: Data Orang Tua / Wali
+                        </h3>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Nama Ayah / Wali *</label>
+                                <input type="text" id="ppdbOrtu" required placeholder="Nama lengkap Ayah" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Nama Ibu Kandung *</label>
+                                <input type="text" required placeholder="Nama lengkap Ibu" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">No. WhatsApp Aktif (Pengiriman Pengumuman) *</label>
+                                <input type="tel" id="ppdbWa" required placeholder="08123456789" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Pekerjaan Utama Ortu *</label>
+                                <input type="text" required placeholder="PNS / Swasta / Wiraswasta" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Alamat Domisili Lengkap *</label>
+                            <textarea required rows="2" placeholder="Nama Jalan, RT/RW, Kelurahan, Kecamatan, Kabupaten/Kota" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl p-4 text-sm focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                        </div>
+
+                        <div class="flex justify-between pt-4">
+                            <button type="button" onclick="nextWizardStep(1)" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold px-6 py-3 rounded-xl transition text-sm">
+                                <i class="fas fa-arrow-left"></i> Kembali
+                            </button>
+                            <button type="button" onclick="nextWizardStep(3)" class="bg-brand-primary hover:bg-brand-dark text-white font-bold px-8 py-3 rounded-xl transition text-sm flex items-center gap-2">
+                                Lanjut Langkah 3 <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Pilihan Jurusan -->
+                    <div id="form-step-3" class="form-step hidden space-y-6">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white border-b dark:border-slate-800 pb-3 flex items-center gap-2">
+                            <i class="fas fa-book-bookmark text-brand-primary dark:text-emerald-400"></i> Langkah 3: Pilihan Jurusan & Program
+                        </h3>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Pilihan Jurusan MA Plus *</label>
+                                <select id="ppdbJurusan" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                                    <option value="">-- Pilih Jurusan --</option>
+                                    <option value="MA Plus MIPA (Sains & Al-Qur'an)">MA Plus MIPA (Sains & Al-Qur'an)</option>
+                                    <option value="MA Plus IPS (Ekonomi Syariah)">MA Plus IPS (Ekonomi Syariah)</option>
+                                    <option value="Program Special Tahfizh 30 Juz">Program Special Tahfizh 30 Juz</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Asal Sekolah / MTs / SMP *</label>
+                                <input type="text" id="ppdbAsal" required placeholder="Contoh: MTs Negeri 1 Sukabumi" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl border border-emerald-200 dark:border-emerald-800 text-xs text-slate-700 dark:text-slate-300 space-y-2">
+                            <p class="font-bold text-brand-primary dark:text-emerald-400 flex items-center gap-1">
+                                <i class="fas fa-circle-check"></i> Fasilitas Asrama & Program Diniyah Termasuk
+                            </p>
+                            <p>Seluruh calon santri yang diterima akan secara otomatis mendapatkan layanan asrama terpadu, bimbingan pengasuh 24 jam, dan program pembiasaan bahasa Arab/Inggris.</p>
+                        </div>
+
+                        <div class="flex justify-between pt-4">
+                            <button type="button" onclick="nextWizardStep(2)" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold px-6 py-3 rounded-xl transition text-sm">
+                                <i class="fas fa-arrow-left"></i> Kembali
+                            </button>
+                            <button type="button" onclick="nextWizardStep(4)" class="bg-brand-primary hover:bg-brand-dark text-white font-bold px-8 py-3 rounded-xl transition text-sm flex items-center gap-2">
+                                Lanjut Langkah 4 <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Unggah Berkas & Finis -->
+                    <div id="form-step-4" class="form-step hidden space-y-6">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white border-b dark:border-slate-800 pb-3 flex items-center gap-2">
+                            <i class="fas fa-file-arrow-up text-brand-primary dark:text-emerald-400"></i> Langkah 4: Unggah Berkas Dokumen (Opsional)
+                        </h3>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-4 text-center hover:border-brand-primary dark:hover:border-emerald-400 transition cursor-pointer">
+                                <i class="fas fa-id-card text-2xl text-slate-400 mb-1"></i>
+                                <p class="text-xs font-bold text-slate-700 dark:text-slate-300">Kartu Keluarga (KK)</p>
+                                <p class="text-[10px] text-slate-400">PDF / JPG Max 2MB</p>
+                                <input type="file" class="hidden" id="fileKK">
+                            </div>
+                            <div class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-4 text-center hover:border-brand-primary dark:hover:border-emerald-400 transition cursor-pointer">
+                                <i class="fas fa-file-certificate text-2xl text-slate-400 mb-1"></i>
+                                <p class="text-xs font-bold text-slate-700 dark:text-slate-300">Akta Kelahiran</p>
+                                <p class="text-[10px] text-slate-400">PDF / JPG Max 2MB</p>
+                                <input type="file" class="hidden" id="fileAkta">
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 dark:bg-amber-950/40 rounded-2xl p-4 border border-amber-200 dark:border-amber-800 text-xs text-amber-900 dark:text-amber-200">
+                            <p class="font-bold mb-1"><i class="fas fa-circle-info"></i> Catatan Berkas Administrasi:</p>
+                            <p>Pengunggahan berkas dapat disusulkan pada saat pelaksanaan tes seleksi offline di kampus MA Plus Bahrul Huda.</p>
+                        </div>
+
+                        <div class="flex justify-between pt-4 border-t dark:border-slate-800">
+                            <button type="button" onclick="nextWizardStep(3)" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold px-6 py-3 rounded-xl transition text-sm">
+                                <i class="fas fa-arrow-left"></i> Kembali
+                            </button>
+                            <button type="submit" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold px-10 py-3.5 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                                <i class="fas fa-paper-plane"></i> Finalisasi & Kirim Daftar PPDB
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- Printable Registration Card Preview (Hidden until Submitted) -->
+                <div id="registrationResult" class="hidden space-y-6 pt-4">
+                    <div class="text-center space-y-2">
+                        <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Pendaftaran Berhasil Dikirim!</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Silakan simpan atau cetak Tanda Bukti Registrasi PPDB di bawah ini.</p>
+                    </div>
+
+                    <!-- Card Layout -->
+                    <div id="printableCard" class="bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-8 border-2 border-brand-primary shadow-xl space-y-6 relative overflow-hidden">
+                        <div class="flex justify-between items-center border-b dark:border-slate-700 pb-4">
+                            <div class="flex items-center gap-3">
+                                <!-- Printable Card Logo -->
+                                <svg viewBox="0 0 200 220" class="w-12 h-12 drop-shadow-sm flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M 100 6 L 188 50 L 188 152 L 100 196 L 12 152 L 12 50 Z" fill="#9de284" stroke="#0a4623" stroke-width="7" stroke-linejoin="round"/>
+                                    <path id="logoArcCard" d="M 28 108 A 76 76 0 0 1 172 108" fill="none"/>
+                                    <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11.5" fill="#0d381e">
+                                        <textPath href="#logoArcCard" startOffset="50%" text-anchor="middle">PONDOK PESANTREN BAHRUL HUDA</textPath>
+                                    </text>
+                                    <g stroke="#dc2626" stroke-width="2.5" stroke-linecap="round">
+                                        <line x1="100" y1="28" x2="100" y2="16"/>
+                                        <line x1="88" y1="32" x2="74" y2="22"/>
+                                        <line x1="112" y1="32" x2="126" y2="22"/>
+                                        <line x1="82" y1="42" x2="68" y2="38"/>
+                                        <line x1="118" y1="42" x2="132" y2="38"/>
+                                    </g>
+                                    <path d="M 100 26 C 94 36 96 44 100 48 C 104 44 106 36 100 26 Z" fill="#ef4444"/>
+                                    <path d="M 90 54 L 100 48 L 110 54 Z" fill="#1e293b"/>
+                                    <path d="M 86 142 L 92 68 L 100 68 L 100 142 Z" fill="#0f172a"/>
+                                    <path d="M 100 142 L 100 68 L 108 68 L 114 142 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="1"/>
+                                    <rect x="91" y="78" width="6" height="12" rx="3" fill="#ffffff"/>
+                                    <rect x="103" y="78" width="6" height="12" rx="3" fill="#0f172a"/>
+                                    <rect x="92" y="102" width="5" height="10" rx="2" fill="#ffffff"/>
+                                    <rect x="103" y="102" width="5" height="10" rx="2" fill="#0f172a"/>
+                                    <path d="M 45 80 C 65 75 60 115 48 110 C 38 105 60 85 70 100" fill="none" stroke="#09542a" stroke-width="3.5" stroke-linecap="round"/>
+                                    <path d="M 155 80 C 135 75 140 115 152 110 C 162 105 140 85 130 100" fill="none" stroke="#09542a" stroke-width="3.5" stroke-linecap="round"/>
+                                    <path d="M 46 135 L 48 140 L 53 140 L 49 143 L 51 148 L 46 145 L 41 148 L 43 143 L 39 140 L 44 140 Z" fill="#09542a"/>
+                                    <path d="M 36 152 L 38 156 L 42 156 L 39 159 L 40 163 L 36 160 L 32 163 L 33 159 L 30 156 L 34 156 Z" fill="#09542a"/>
+                                    <path d="M 154 135 L 156 140 L 161 140 L 157 143 L 159 148 L 154 145 L 149 148 L 151 143 L 147 140 L 152 140 Z" fill="#09542a"/>
+                                    <path d="M 164 152 L 166 156 L 170 156 L 167 159 L 168 163 L 164 160 L 160 163 L 161 159 L 158 156 L 162 156 Z" fill="#09542a"/>
+                                    <path d="M 62 150 Q 82 145 100 152 Q 118 145 138 150 L 138 168 Q 118 162 100 169 Q 82 162 62 168 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+                                    <line x1="100" y1="152" x2="100" y2="169" stroke="#0f172a" stroke-width="2"/>
+                                    <path d="M 40 188 L 52 180 L 148 180 L 160 188 L 152 204 L 148 198 L 52 198 L 48 204 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/>
+                                    <text x="100" y="193" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#b91c1c" text-anchor="middle">BAHRUL HUDA</text>
+                                </svg>
+                                <div>
+                                    <h4 class="font-extrabold text-slate-900 dark:text-white text-base">MA PLUS BAHRUL HUDA</h4>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">KARTU TANDA BUKTI DAFTAR PPDB T.A. 2026/2027</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] font-bold text-slate-400 block">NO. REGISTRASI:</span>
+                                <span class="font-mono font-extrabold text-brand-primary dark:text-emerald-400 text-base" id="cardRegNo">PPDB-2026-0000</span>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                            <div><span class="text-slate-400 block">Nama Calon Santri:</span><strong class="text-slate-800 dark:text-slate-100 text-sm" id="cardNama">-</strong></div>
+                            <div><span class="text-slate-400 block">Jurusan / Program:</span><strong class="text-slate-800 dark:text-slate-100 text-sm" id="cardJurusan">-</strong></div>
+                            <div><span class="text-slate-400 block">Asal Sekolah:</span><strong class="text-slate-800 dark:text-slate-100" id="cardAsal">-</strong></div>
+                            <div><span class="text-slate-400 block">Nama Orang Tua/Wali:</span><strong class="text-slate-800 dark:text-slate-100" id="cardOrtu">-</strong></div>
+                            <div><span class="text-slate-400 block">WhatsApp Kontak:</span><strong class="text-slate-800 dark:text-slate-100" id="cardWa">-</strong></div>
+                            <div><span class="text-slate-400 block">Status Administrasi:</span><span class="inline-block bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold px-2.5 py-0.5 rounded-full text-[10px]">Terverifikasi Sistem</span></div>
+                        </div>
+
+                        <div class="border-t dark:border-slate-700 pt-4 flex justify-between items-center text-[10px] text-slate-500 dark:text-slate-400">
+                            <p>Bawa kartu ini saat tes seleksi di Kampus MA Plus Bahrul Huda Sukabumi.</p>
+                            <span class="font-mono" id="cardTimestamp">Tgl: 19/10/2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Print & Actions -->
+                    <div class="flex flex-wrap gap-4 justify-center pt-2">
+                        <button onclick="window.print()" class="bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-xl text-xs transition flex items-center gap-2">
+                            <i class="fas fa-print"></i> Cetak Kartu Pendaftaran PDF
+                        </button>
+                        <button onclick="switchPage('home')" class="bg-brand-primary hover:bg-brand-dark text-white font-bold px-6 py-3 rounded-xl text-xs transition">
+                            Kembali ke Beranda
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="kontak" class="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-emerald-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <!-- Footer SVG Logo -->
+                        <svg viewBox="0 0 200 220" class="w-10 h-10 drop-shadow-sm flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 100 6 L 188 50 L 188 152 L 100 196 L 12 152 L 12 50 Z" fill="#9de284" stroke="#0a4623" stroke-width="7" stroke-linejoin="round"/>
+                            <path id="logoArcFooter" d="M 28 108 A 76 76 0 0 1 172 108" fill="none"/>
+                            <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11.5" fill="#0d381e">
+                                <textPath href="#logoArcFooter" startOffset="50%" text-anchor="middle">PONDOK PESANTREN BAHRUL HUDA</textPath>
+                            </text>
+                            <g stroke="#dc2626" stroke-width="2.5" stroke-linecap="round">
+                                <line x1="100" y1="28" x2="100" y2="16"/>
+                                <line x1="88" y1="32" x2="74" y2="22"/>
+                                <line x1="112" y1="32" x2="126" y2="22"/>
+                                <line x1="82" y1="42" x2="68" y2="38"/>
+                                <line x1="118" y1="42" x2="132" y2="38"/>
+                            </g>
+                            <path d="M 100 26 C 94 36 96 44 100 48 C 104 44 106 36 100 26 Z" fill="#ef4444"/>
+                            <path d="M 90 54 L 100 48 L 110 54 Z" fill="#1e293b"/>
+                            <path d="M 86 142 L 92 68 L 100 68 L 100 142 Z" fill="#0f172a"/>
+                            <path d="M 100 142 L 100 68 L 108 68 L 114 142 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="1"/>
+                            <rect x="91" y="78" width="6" height="12" rx="3" fill="#ffffff"/>
+                            <rect x="103" y="78" width="6" height="12" rx="3" fill="#0f172a"/>
+                            <rect x="92" y="102" width="5" height="10" rx="2" fill="#ffffff"/>
+                            <rect x="103" y="102" width="5" height="10" rx="2" fill="#0f172a"/>
+                            <path d="M 45 80 C 65 75 60 115 48 110 C 38 105 60 85 70 100" fill="none" stroke="#09542a" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M 155 80 C 135 75 140 115 152 110 C 162 105 140 85 130 100" fill="none" stroke="#09542a" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M 46 135 L 48 140 L 53 140 L 49 143 L 51 148 L 46 145 L 41 148 L 43 143 L 39 140 L 44 140 Z" fill="#09542a"/>
+                            <path d="M 36 152 L 38 156 L 42 156 L 39 159 L 40 163 L 36 160 L 32 163 L 33 159 L 30 156 L 34 156 Z" fill="#09542a"/>
+                            <path d="M 154 135 L 156 140 L 161 140 L 157 143 L 159 148 L 154 145 L 149 148 L 151 143 L 147 140 L 152 140 Z" fill="#09542a"/>
+                            <path d="M 164 152 L 166 156 L 170 156 L 167 159 L 168 163 L 164 160 L 160 163 L 161 159 L 158 156 L 162 156 Z" fill="#09542a"/>
+                            <path d="M 62 150 Q 82 145 100 152 Q 118 145 138 150 L 138 168 Q 118 162 100 169 Q 82 162 62 168 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+                            <line x1="100" y1="152" x2="100" y2="169" stroke="#0f172a" stroke-width="2"/>
+                            <path d="M 40 188 L 52 180 L 148 180 L 160 188 L 152 204 L 148 198 L 52 198 L 48 204 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/>
+                            <text x="100" y="193" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#b91c1c" text-anchor="middle">BAHRUL HUDA</text>
+                        </svg>
+                        <span class="font-bold text-2xl text-white tracking-tight">MA PLUS BAHRUL HUDA</span>
+                    </div>
+                            </div>
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold text-white uppercase border-b border-slate-800 pb-2">Tautan Navigasi</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="switchPage('home')" class="hover:text-amber-400 transition">Beranda Utama</button></li>
+                        <li><button onclick="switchPage('ppdb')" class="hover:text-amber-400 transition">Portal Daftar PPDB</button></li>
+                        <li><button onclick="navigateToHomeSection('biaya-ppdb')" class="hover:text-amber-400 transition">Rincian Biaya</button></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-5 space-y-3">
+                    <h4 class="text-sm font-bold text-white uppercase border-b border-slate-800 pb-2">Kontak Sekretariat PPDB</h4>
+                    <p class="text-xs text-slate-400"><i class="fas fa-map-marker-alt text-amber-400"></i> Jl. Raya Sungaiselan, Desa Sarangmandi, Kec. Sungaiselan, Kab. Bangka Tengah</p>
+                    <p class="text-xs text-slate-400"><i class="fas fa-phone-alt text-amber-400"></i> 0853-8175-8839</p>
+                </div>
+            </div>
+            <div class="pt-8 text-center text-xs text-slate-500">
+                <p>&copy; 2026 MA Plus Bahrul Huda. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- News Modal -->
+    <div id="newsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md hidden transition-all">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl relative transform transition-all">
+            <button onclick="closeNewsModal()" class="absolute top-4 right-4 z-10 text-white hover:text-slate-200 text-lg font-bold w-9 h-9 rounded-full bg-slate-950/50 backdrop-blur-sm flex items-center justify-center transition">&times;</button>
+            <div class="h-64 overflow-hidden relative">
+                <img id="newsModalImg" src="" alt="News Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                <div class="absolute bottom-4 left-6 right-6 text-white space-y-1">
+                    <span class="bg-amber-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider inline-block" id="newsCategory">Kategori</span>
+                    <h3 class="text-xl sm:text-2xl font-bold leading-tight" id="newsTitle">Judul Berita</h3>
+                </div>
+            </div>
+            <div class="p-6 sm:p-8 space-y-4 max-h-[50vh] overflow-y-auto">
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed" id="newsBody">Detail berita...</p>
+                <div class="pt-4 border-t dark:border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                    <span><i class="fas fa-mosque mr-1 text-brand-primary dark:text-emerald-400"></i> Tim Media MA Plus Bahrul Huda</span>
+                    <button onclick="closeNewsModal()" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold px-4 py-2 rounded-xl transition">Tutup Artikel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Dark Mode Initialization and Toggle Handler
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize theme immediately on script execute
+        initTheme();
+
+        // SPA Page Router with Smooth Animation Trigger
+        function switchPage(pageName) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
+            const targetPage = pageName === 'ppdb' ? document.getElementById('page-ppdb') : document.getElementById('page-home');
+            
+            targetPage.classList.remove('hidden');
+            targetPage.classList.remove('animate-fade-in');
+            // Trigger reflow for animation restart
+            void targetPage.offsetWidth;
+            targetPage.classList.add('animate-fade-in');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        function navigateToHomeSection(sectionId) {
+            switchPage('home');
+            setTimeout(() => {
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
+        }
+
+        // Tab Switching with Smooth Fade Effect
+        function switchTab(key) {
+            document.querySelectorAll('.jenjang-tab').forEach(b => b.className = 'jenjang-tab px-6 py-3 rounded-xl font-bold text-sm text-slate-600 transition-all duration-300');
+            document.querySelectorAll('.tab-pane').forEach(p => {
+                p.classList.add('hidden');
+                p.classList.remove('animate-fade-in');
+            });
+            
+            const activeBtn = document.getElementById(`tab-${key}`);
+            const activeContent = document.getElementById(`content-${key}`);
+            
+            if (activeBtn && activeContent) {
+                activeBtn.className = 'jenjang-tab active px-6 py-3 rounded-xl font-bold text-sm bg-brand-primary text-white shadow-sm transition-all duration-300';
+                activeContent.classList.remove('hidden');
+                activeContent.classList.add('animate-fade-in');
+            }
+        }
+
+        // Scroll Reveal Animation via IntersectionObserver
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        });
+
+        // Wizard Steps
+        function nextWizardStep(stepNum) {
+            document.querySelectorAll('.form-step').forEach(s => s.classList.add('hidden'));
+            document.getElementById(`form-step-${stepNum}`).classList.remove('hidden');
+
+            document.querySelectorAll('.step-indicator').forEach((ind, idx) => {
+                const circle = ind.querySelector('div');
+                if (idx + 1 <= stepNum) {
+                    ind.className = 'step-indicator active text-brand-primary space-y-1';
+                    circle.className = 'w-8 h-8 rounded-full bg-brand-primary text-white font-bold flex items-center justify-center mx-auto shadow';
+                } else {
+                    ind.className = 'step-indicator space-y-1 text-slate-400';
+                    circle.className = 'w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center mx-auto';
+                }
+            });
+        }
+
+        function handlePPDBFullSubmit(e) {
+            e.preventDefault();
+            const nama = document.getElementById('ppdbNama').value;
+            const ortu = document.getElementById('ppdbOrtu').value;
+            const wa = document.getElementById('ppdbWa').value;
+            const jurusan = document.getElementById('ppdbJurusan').value;
+            const asal = document.getElementById('ppdbAsal').value;
+
+            const randomCode = 'PPDB-2026-' + Math.floor(1000 + Math.random() * 9000);
+
+            document.getElementById('cardRegNo').innerText = randomCode;
+            document.getElementById('cardNama').innerText = nama;
+            document.getElementById('cardOrtu').innerText = ortu;
+            document.getElementById('cardWa').innerText = wa;
+            document.getElementById('cardJurusan').innerText = jurusan;
+            document.getElementById('cardAsal').innerText = asal;
+
+            const d = new Date();
+            document.getElementById('cardTimestamp').innerText = `Tgl Daftar: ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
+
+            document.getElementById('ppdbFullForm').classList.add('hidden');
+            document.getElementById('registrationResult').classList.remove('hidden');
+        }
+
+        function calculateFee() {
+            const jenjang = document.getElementById('calcJenjang').value;
+            const program = document.getElementById('calcProgram').value;
+
+            let infaq = 8500000;
+            let spp = 1600000;
+            let seragam = 1800000;
+            let buku = 1500000;
+
+            if (jenjang === 'sma') { infaq = 9500000; spp = 1750000; }
+            if (program === 'tahfizh') { spp += 200000; }
+
+            const total = infaq + spp + seragam + buku;
+
+            document.getElementById('feeInfaq').innerText = 'Rp ' + infaq.toLocaleString('id-ID');
+            document.getElementById('feeSpp').innerText = 'Rp ' + spp.toLocaleString('id-ID');
+            document.getElementById('feeSeragam').innerText = 'Rp ' + seragam.toLocaleString('id-ID');
+            document.getElementById('feeBuku').innerText = 'Rp ' + buku.toLocaleString('id-ID');
+            document.getElementById('feeTotal').innerText = 'Rp ' + total.toLocaleString('id-ID');
+        }
+
+        function switchTab(key) {
+            document.querySelectorAll('.jenjang-tab').forEach(b => b.className = 'jenjang-tab px-6 py-3 rounded-xl font-bold text-sm text-slate-600');
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`tab-${key}`).className = 'jenjang-tab active px-6 py-3 rounded-xl font-bold text-sm bg-brand-primary text-white shadow-sm';
+            document.getElementById(`content-${key}`).classList.remove('hidden');
+        }
+
+        function filterGallery(cat) {
+            document.querySelectorAll('.gallery-filter').forEach(b => b.className = 'gallery-filter px-5 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-700');
+            event.target.className = 'gallery-filter active px-5 py-2 rounded-full text-xs font-bold bg-brand-primary text-white';
+            document.querySelectorAll('.gallery-item').forEach(i => {
+                i.style.display = (cat === 'all' || i.classList.contains(cat)) ? 'block' : 'none';
+            });
+        }
+
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#heroSlider .slide');
+        function setSlide(index) {
+            slides.forEach((s, i) => s.style.opacity = i === index ? '1' : '0');
+            currentSlide = index;
+        }
+        setInterval(() => setSlide((currentSlide + 1) % slides.length), 5000);
+
+        // Interactive News Data
+        const newsData = {
+            1: {
+                category: "Prestasi • 14 Okt 2026",
+                title: "Siswa MA Plus Bahrul Huda Raih Juara 1 MHQ 10 Juz",
+                image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
+                body: "Alhamdulillah, kontingen santri MA Plus Bahrul Huda Sukabumi kembali mengukir prestasi gemilang dalam ajang Musabaqah Hifzhil Qur'an (MHQ) tingkat provinsi. Ananda Muhammad Rizky berhasil menyabet Juara 1 kategori Hafalan 10 Juz setelah bersaing ketat dengan puluhan peserta dari berbagai madrasah. Capaian ini menunjukkan konsistensi bimbingan tahfizh yang berkualitas di pesantren."
+            },
+            2: {
+                category: "Kajian • 08 Okt 2026",
+                title: "Seminar Parenting: Mendidik Gen Z Berakhlaqul Karimah",
+                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop",
+                body: "MA Plus Bahrul Huda menyelenggarakan Seminar Parenting Islami bertema 'Sinergi Orang Tua dan Pesantren dalam Membentuk Karakter Gen Z'. Acara ini dihadiri oleh ratusan wali santri dengan menghadirkan penceramah dan praktisi psikologi anak nasional. Hasil dari seminar ini menyepakati keselarasan aturan disiplin santri di asrama dan lingkungan rumah."
+            },
+            3: {
+                category: "Kegiatan • 28 Sep 2026",
+                title: "Rihlah Alam & Outbound Kepemimpinan Santri Baru",
+                image: "https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&w=800&auto=format&fit=crop",
+                body: "Sebanyak 250 santri baru MA Plus Bahrul Huda mengikuti kegiatan Rihlah Alam dan Outbound Kepemimpinan di kawasan Sukabumi. Kegiatan ini bertujuan mempererat ukhuwah, melatih kebersamaan, kemandirian, serta mental kepemimpinan santri sejak awal masuk pesantren. Berbagai gim edukatif dan tadabbur alam menambah semangat para santri."
+            }
+        };
+
+        function openNewsModal(id) {
+            const data = newsData[id];
+            if (data) {
+                document.getElementById('newsCategory').innerText = data.category;
+                document.getElementById('newsTitle').innerText = data.title;
+                document.getElementById('newsBody').innerText = data.body;
+                document.getElementById('newsModalImg').src = data.image;
+                document.getElementById('newsModal').classList.remove('hidden');
+            }
+        }
+
+        function closeNewsModal() {
+            document.getElementById('newsModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
